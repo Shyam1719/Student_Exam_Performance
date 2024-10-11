@@ -68,8 +68,8 @@ class DataTransformation:
             
             input_feature_test_arr = preprocessor_obj.transform(input_feature_test_df)
             logging.info("Input feature of test data transformed successfully")
-            train_df = np.c_[input_feature_train_arr,np.array(target_feature_train_df)]
-            test_df = np.c_[input_feature_test_arr,np.array(target_feature_test_df)]
+            train_arr = np.c_[input_feature_train_arr,np.array(target_feature_train_df)]
+            test_arr = np.c_[input_feature_test_arr,np.array(target_feature_test_df)]
             
             logging.info("Data transformation completed successfully")
             
@@ -77,6 +77,6 @@ class DataTransformation:
             save_object(file_path=self.data_transformation_config.preprocess_obj_file_path,obj=preprocessor_obj)
             logging.info("Preprocessing object saved successfully")
             
-            return (train_df,test_df,self.data_transformation_config.preprocess_obj_file_path)
+            return (train_arr,test_arr)
         except Exception as e:
             raise CustomException(e,sys)
