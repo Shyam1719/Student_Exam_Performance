@@ -16,6 +16,16 @@ def save_object(file_path, obj):
         logging.info("In save_object function object saved successfully")
     except Exception as e:
         raise CustomException(e,sys)
+    
+def load_object(file_path):
+    try:
+        logging.info("In load_object function")
+        with open(file_path, 'rb') as f:
+            obj = dill.load(f)
+        logging.info("In load_object function object loaded successfully")
+        return obj
+    except Exception as e:
+        raise CustomException(e,sys)
 
 def evaluate_models(X_train, Y_train,X_test,Y_test,models):
     try:
