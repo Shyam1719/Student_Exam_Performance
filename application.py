@@ -26,4 +26,4 @@ def predict_datapoints():
         results = predict_pipeline.predict(predict_df)
         return render_template('predict_data.html',results=results[0])
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",debug = True)
+    app.run(host="0.0.0.0")
